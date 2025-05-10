@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/lhpkw8j8gvbp3k53/branch/main?svg=true)](https://ci.appveyor.com/project/kirillTest465/java20-bdd-cucumber/branch/main)
