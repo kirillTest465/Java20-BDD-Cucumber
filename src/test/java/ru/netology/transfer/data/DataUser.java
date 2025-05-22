@@ -9,9 +9,14 @@ public class DataUser {
     public static UserUnfo getUserUnfo() {
         String login = "vasya";
         String password = "qwerty123";
-        String verification = "12345";
-        return new UserUnfo(login, password, verification);
+
+        return new UserUnfo(login,password);
     }
+
+public static UserVerification getUserVerification() {
+    String verification = "12345";
+    return new UserVerification(verification);
+}
 
 
     // Метод для хранения данных первой карты
@@ -41,8 +46,13 @@ public class DataUser {
     public static class UserUnfo {
         String login;
         String password;
+    }
+
+    @Value
+    public static class UserVerification {
         String verificationCode;
     }
+
 
     // Статический класс который хранит в себе номер карты и id карты
     @Value

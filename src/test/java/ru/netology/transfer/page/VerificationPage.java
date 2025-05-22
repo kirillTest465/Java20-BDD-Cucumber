@@ -17,7 +17,7 @@ public class VerificationPage {
 
     // метод который заполняет код верификации и жмет на кнопку продолжить
     public DashboardPage validVerify(String verificationCode) {
-        codeFied.setValue(DataUser.getUserUnfo().getVerificationCode());
+        codeFied.setValue(DataUser.getUserVerification().getVerificationCode());
         verifeButton.click();
         return new DashboardPage();
     }
