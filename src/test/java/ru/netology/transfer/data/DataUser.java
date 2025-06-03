@@ -10,13 +10,13 @@ public class DataUser {
         String login = "vasya";
         String password = "qwerty123";
 
-        return new UserUnfo(login,password);
+        return new UserUnfo(login, password);
     }
 
-public static UserVerification getUserVerification() {
-    String verification = "12345";
-    return new UserVerification(verification);
-}
+    public static UserVerification getUserVerification() {
+        String verification = "12345";
+        return new UserVerification(verification);
+    }
 
 
     // Метод для хранения данных первой карты
