@@ -20,10 +20,10 @@ public class TemplateSteps {
     private static TransferPage transferPage;
 
     @Пусть("пользователь залогинен с именем {string} и паролем {string}")
-    public void verifcation(String login, String password, String verificationCode) {
+    public void verifcation(String login, String password) {
         loginPage = Selenide.open("http://localhost:9999", LoginPage.class);
         verificationPage = loginPage.validLogin(new DataUser.UserUnfo(login, password));
-        dashboardPage = verificationPage.validVerify(verificationCode);
+        dashboardPage = verificationPage.validVerify(DataUser.getUserVerification().getVerificationCode());
 
     }
 
