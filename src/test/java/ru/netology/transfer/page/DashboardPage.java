@@ -22,10 +22,19 @@ public class DashboardPage {
         heading.shouldBe(Condition.visible);
     }
 
+
     // Метод для получения баланса карты
-    public int getcardBalance(DataUser.CardInfo cardInfo) {
-        var text = cards.findBy(Condition.text(cardInfo.getCardNumber().substring(15))).getText();
-        return extractBalance(text);
+    public int getCardBalance(String cardNumber) {
+        // Определяем индекс карты:
+        // - Если номер заканчивается на "0001" → индекс 1 (теперь вторая карта)
+        // - Если номер заканчивается на "0002" → индекс 0 (теперь первая карта)
+        int cardIndex = cardNumber.endsWith("0001") ? 1 : 0;
+
+        // Получаем карту из коллекции по индексу
+        var cardElement = cards.get(cardIndex);
+
+        // Извлекаем баланс
+        return extractBalance(cardElement.getText());
     }
 
 

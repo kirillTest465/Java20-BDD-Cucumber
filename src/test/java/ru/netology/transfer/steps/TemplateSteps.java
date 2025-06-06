@@ -27,16 +27,16 @@ public class TemplateSteps {
     }
 
     @Когда("пользователь переводит {string} рублей с карты с номером {string} на свою {string} карту с главной страницы")
-    public void transfer(String transferAmount, String cardNumber, String selectedCard) {
+    public void transferCardToCard(String transferAmount, String cardNumber, String selectedCard) {
         dashboardPage.selectCardToTransfer(new DataUser.CardInfo(cardNumber, selectedCard));
-        var tmp = new TransferPage().makeValidTransfer(transferAmount, new DataUser.CardInfo(cardNumber, selectedCard));
+        var transfer = new TransferPage().makeValidTransfer(transferAmount, new DataUser.CardInfo(cardNumber, selectedCard));
 
     }
 
 
     @Тогда("баланс его {string} карты из списка на главной странице должен стать {string} рублей")
     public void checkingBalance(String cardNumber, String cardBalance) {
-        var balance = dashboardPage.getcardBalance(new DataUser.CardInfo(cardNumber, cardBalance));
+        var balance = dashboardPage.getCardBalance(cardNumber);
 
         String expected = cardBalance;
         String actual = String.valueOf(balance);
